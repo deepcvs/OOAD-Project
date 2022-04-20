@@ -1,41 +1,9 @@
-
-import java.util.*;
-
-/**
- * 
- */
 public class Dish {
 
-    /**
-     * Default constructor
-     */
+    protected int id;
+    public String name;
+    String price;
+
     public Dish() {
     }
-
-    /**
-     * 
-     */
-    protected void id;
-
-    /**
-     * 
-     */
-    public void name;
-
-    /**
-     * 
-     */
-    public void price;
-
-    /**
-     * 
-     */
-    public void ingredients;
-
-
-
-
-
-
-
 }

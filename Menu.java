@@ -12,7 +12,19 @@ public class Menu {
         sc.close(); // closes the scanner
     }
 
+    public static void addItem(Dish dish) throws Exception {
+        FileWriter pw = new FileWriter("D:\\study\\computer science\\OOAD\\OOAD-Project\\Menu.csv");
+        pw.append(dish.name);
+        pw.append(",");
+        pw.append(dish.price);
+        pw.append("\n");
+        pw.flush();
+        pw.close();
+    }
+
     public static void main(String[] args) throws Exception {
+        Dish dish;
+        
         display();
     }
 }
