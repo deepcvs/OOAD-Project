@@ -2,8 +2,10 @@ public class Dish {
 
     protected int id;
     public String name;
-    String price;
+    public String price;
 
-    public Dish() {
+    public Dish(String name, String price) {
+        this.name = name;
+        this.price = price;
     }
 }

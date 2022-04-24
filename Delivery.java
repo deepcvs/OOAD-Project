@@ -1,30 +1,20 @@
-
 import java.util.*;
 
-/**
- * 
- */
 public class Delivery {
+    protected int id;
+    public int table_number;
+    private Order order;
 
-    /**
-     * Default constructor
-     */
-    public Delivery() {
+    public Delivery(int table_number, Order order) {
+        this.table_number = table_number;
+        this.order = order;
     }
 
-    /**
-     * 
-     */
-    protected void id;
-
-    /**
-     * 
-     */
-    public void name;
-
-    /**
-     * 
-     */
-    public void table_number;
-
+    public void Deliver() {
+        for (Dish dish : order.list_of_dishes) {
+            System.out.println(dish);
+        }
+        Waiter waiter = new Waiter(id, table_number);
+        waiter.Deliver();
+    }
 }

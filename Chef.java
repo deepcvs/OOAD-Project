@@ -1,36 +1,20 @@
-
 import java.util.*;
 
-/**
- * 
- */
 public class Chef {
+    // private void username;
+    // private void password;
+    private Order order;
 
-    /**
-     * Default constructor
-     */
-    public Chef() {
+    public Chef(Order order) {
+        this.order = order;
     }
 
-    /**
-     * 
-     */
-    private void username;
-
-    /**
-     * 
-     */
-    private void password;
-
-
-
-
-
-    /**
-     * 
-     */
-    public void TakeOrder() {
+    public void MakeOrder() {
         // TODO implement here
+        for (Dish dish : order.list_of_dishes) {
+            System.out.println(dish + " Preparing...");
+            System.out.println(dish + " Done");
+        }
     }
 
 }

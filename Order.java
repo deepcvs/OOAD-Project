@@ -1,51 +1,37 @@
-
 import java.util.*;
 
-/**
- * 
- */
 public class Order {
+    private int id;
+    public List<Dish> list_of_dishes;
+    public int status; // 1 if order is delivered 0 if still under preparation
 
-    /**
-     * Default constructor
-     */
-    public Order() {
+    public Order(List<Dish> list_of_dishes, int status) {
+        this.list_of_dishes = list_of_dishes;
+        this.status = status;
     }
 
-    /**
-     * 
-     */
-    protected void order_id;
-
-    /**
-     * 
-     */
-    public void list_of_dishes;
-
-    /**
-     * 
-     */
-    public void status;
-
-
-
-
-
-
-
-
-    /**
-     * 
-     */
     public void AddItem() {
         // TODO implement here
+        String name, price;
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter Dish name : ");
+
+            name = input.nextLine(); // Read user input
+            price = input.nextLine();
+        }
+        Dish dish = new Dish(name, price);
+        list_of_dishes.add(dish);
     }
 
-    /**
-     * 
-     */
     public void RemoveItem() {
-        // TODO implement here
-    }
+        String name, price;
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter Dish name : ");
 
+            name = input.nextLine(); // Read user input
+            price = input.nextLine();
+        }
+        Dish dish = new Dish(name, price);
+        list_of_dishes.remove(dish);
+    }
 }

@@ -13,7 +13,8 @@ public class Menu {
     }
 
     public static void addItem(Dish dish) throws Exception {
-        FileWriter pw = new FileWriter("D:\\study\\computer science\\OOAD\\OOAD-Project\\Menu.csv");
+        FileWriter pw = new FileWriter("D:\\study\\computer science\\OOAD\\OOAD-Project\\Menu.csv", true);
+        pw.append("\n");
         pw.append(dish.name);
         pw.append(",");
         pw.append(dish.price);
@@ -23,8 +24,16 @@ public class Menu {
     }
 
     public static void main(String[] args) throws Exception {
-        Dish dish;
-        
+        String name, price;
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Enter Dish name : ");
+
+            name = input.nextLine(); // Read user input
+            price = input.nextLine();
+        }
+        Dish dish = new Dish(name, price);
+        addItem(dish);
+        System.out.println("Updated Menu");
         display();
     }
 }
