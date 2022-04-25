@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Chef {
-    // private void username;
-    // private void password;
+    private String username;
+    private String password;
     private Order order;
 
     public Chef(Order order) {

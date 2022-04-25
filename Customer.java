@@ -3,8 +3,8 @@ import java.util.*;
 // public class Customer extends Admin {
 public class Customer {
     private int id;
-    private String username, password;
-    Order order;
+    public String username, password;
+    public Order order = new Order(null, id);
 
     public Customer(String username, String password) {
         this.username = username;
@@ -13,13 +13,14 @@ public class Customer {
 
     public void Create() {
         // If customer not in database create new customer
-        System.out.println("Welcome to the Restaurant !!!!!");
+        System.out.println("Create a profile : ");
         String username, password;
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter your username : ");
             username = input.nextLine(); // Read user input
             System.out.println("Enter your password : ");
             password = input.nextLine();
+            input.close();
         }
         Customer customer = new Customer(username, password);
 
@@ -27,7 +28,7 @@ public class Customer {
     }
 
     public void TakeOrder() {
-        System.out.println("Give your order : ");
+        // System.out.println("Give your order : ");
         order.AddItem();
     }
 

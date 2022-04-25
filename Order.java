@@ -15,9 +15,11 @@ public class Order {
         String name, price;
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter Dish name : ");
-
             name = input.nextLine(); // Read user input
+
+            System.out.println("Enter the price : ");
             price = input.nextLine();
+            input.close();
         }
         Dish dish = new Dish(name, price);
         list_of_dishes.add(dish);
@@ -27,9 +29,11 @@ public class Order {
         String name, price;
         try (Scanner input = new Scanner(System.in)) {
             System.out.println("Enter Dish name : ");
-
             name = input.nextLine(); // Read user input
+
+            System.out.println("Enter the price : ");
             price = input.nextLine();
+            input.close();
         }
         Dish dish = new Dish(name, price);
         list_of_dishes.remove(dish);

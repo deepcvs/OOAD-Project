@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Menu {
-    public static void display() throws Exception {
+    public void display() throws Exception {
         Scanner sc = new Scanner(new File("D:\\study\\computer science\\OOAD\\OOAD-Project\\Menu.csv"));
         sc.useDelimiter(","); // sets the delimiter pattern
         while (sc.hasNext()) // returns a boolean value
@@ -12,7 +12,7 @@ public class Menu {
         sc.close(); // closes the scanner
     }
 
-    public static void addItem(Dish dish) throws Exception {
+    public void addItem(Dish dish) throws Exception {
         FileWriter pw = new FileWriter("D:\\study\\computer science\\OOAD\\OOAD-Project\\Menu.csv", true);
         pw.append("\n");
         pw.append(dish.name);
@@ -23,17 +23,17 @@ public class Menu {
         pw.close();
     }
 
-    public static void main(String[] args) throws Exception {
-        String name, price;
-        try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Enter Dish name : ");
+    // public static void main(String[] args) throws Exception {
+    // String name, price;
+    // try (Scanner input = new Scanner(System.in)) {
+    // System.out.println("Enter Dish name : ");
 
-            name = input.nextLine(); // Read user input
-            price = input.nextLine();
-        }
-        Dish dish = new Dish(name, price);
-        addItem(dish);
-        System.out.println("Updated Menu");
-        display();
-    }
+    // name = input.nextLine(); // Read user input
+    // price = input.nextLine();
+    // }
+    // Dish dish = new Dish(name, price);
+    // addItem(dish);
+    // System.out.println("Updated Menu");
+    // display();
+    // }
 }

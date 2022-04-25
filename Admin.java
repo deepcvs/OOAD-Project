@@ -1,28 +1,10 @@
-
 import java.util.*;
 
-/**
- * 
- */
 public class Admin {
+    private int id;
+    private String username;
+    private String password;
 
-    /**
-     * Default constructor
-     */
     public Admin() {
     }
-
-    /**
-     * 
-     */
-    private void username;
-
-    /**
-     * 
-     */
-    private void password;
-
-
-
-
 }
