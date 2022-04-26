@@ -10,32 +10,32 @@ public class Order {
         this.status = status;
     }
 
-    public void AddItem() {
+    public void AddItem(Scanner input) {
         // TODO implement here
         String name, price;
-        try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Enter Dish name : ");
+        try(input) {
+            System.out.println("Enter Dish name: ");
             name = input.nextLine(); // Read user input
-
-            System.out.println("Enter the price : ");
+            System.out.println("Enter the price: ");
             price = input.nextLine();
-            input.close();
+            Dish dish = new Dish(name, price);
+            list_of_dishes.add(dish);
+        }  catch (Exception e) {
+            System.err.println(e);
         }
-        Dish dish = new Dish(name, price);
-        list_of_dishes.add(dish);
     }
 
-    public void RemoveItem() {
+    public void RemoveItem(Scanner input) {
         String name, price;
-        try (Scanner input = new Scanner(System.in)) {
+        try {
             System.out.println("Enter Dish name : ");
             name = input.nextLine(); // Read user input
-
             System.out.println("Enter the price : ");
             price = input.nextLine();
-            input.close();
+            Dish dish = new Dish(name, price);
+            list_of_dishes.remove(dish);
+        } catch (Exception e) {
+            System.err.println(e);
         }
-        Dish dish = new Dish(name, price);
-        list_of_dishes.remove(dish);
     }
 }

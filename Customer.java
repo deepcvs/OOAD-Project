@@ -11,25 +11,27 @@ public class Customer {
         this.password = password;
     }
 
-    public void Create() {
+    public void Create(Scanner input) {
         // If customer not in database create new customer
         System.out.println("Create a profile : ");
         String username, password;
-        try (Scanner input = new Scanner(System.in)) {
+        try {
             System.out.println("Enter your username : ");
             username = input.nextLine(); // Read user input
             System.out.println("Enter your password : ");
             password = input.nextLine();
-            input.close();
+            Customer customer = new Customer(username, password);
+        } catch (Exception e) {
+            System.err.println(e);
         }
-        Customer customer = new Customer(username, password);
-
+            
         // Add customer to the database
     }
 
-    public void TakeOrder() {
+    public void TakeOrder(Scanner input) {
         // System.out.println("Give your order : ");
-        order.AddItem();
+        order.AddItem(input);
+        return;
     }
 
     public void AskBill() {
