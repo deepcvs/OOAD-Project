@@ -25,7 +25,7 @@ public class Order {
             System.err.println(e);
         }
     }
-
+    // doesn't work
     public List<Dish> RemoveItem(Scanner input) {
         String name, price;
         try {

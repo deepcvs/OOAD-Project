@@ -32,24 +32,24 @@ public class Customer {
     public void TakeOrder(Scanner input) {
         int taking = 1;
         while (taking != 0) {
-            if(taking == 1)
-            {
-                order.AddItem(input);
-            }
-            else if(taking == 2)
-            {
-                order.RemoveItem(input);
-            }
-            else {
-                System.out.println("Enter Valid Number");
-            }
             try {
-                if(list_of_dishes.isEmpty())
-                {
-                    for (Dish dish : list_of_dishes) {
-                        System.out.println(dish.name + "+" + dish.price);
+                switch (taking) {
+                    case 1: {
+                        order.AddItem(input);
+                        break;
                     }
+                    case 2: {
+                        order.RemoveItem(input); // doesn't work
+                        break;
+                    }
+                    default:
+                        System.out.println("Enter Valid Number");
                 }
+                System.out.println("\nYour current order is:");
+                for (Dish dish : list_of_dishes) {
+                    System.out.println(dish.name + " " + dish.price);
+                }
+                System.out.println("\n");
                 System.out.println("Enter\n0 to Finalize\n1 to Add Dish\n2 to Remove Dish");
                 taking = Integer.parseInt(input.nextLine());
             } catch (Exception e) {
