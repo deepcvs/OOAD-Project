@@ -31,10 +31,26 @@ public class Customer {
 
     public void TakeOrder(Scanner input) {
         int taking = 1;
-        while (taking == 1) {
-            order.AddItem(input);
+        while (taking != 0) {
+            if(taking == 1)
+            {
+                order.AddItem(input);
+            }
+            else if(taking == 2)
+            {
+                order.RemoveItem(input);
+            }
+            else {
+                System.out.println("Enter Valid Number");
+            }
             try {
-                System.out.println("Enter 1 to continue to give order else enter 0 to finalize order");
+                if(list_of_dishes.isEmpty())
+                {
+                    for (Dish dish : list_of_dishes) {
+                        System.out.println(dish.name + "+" + dish.price);
+                    }
+                }
+                System.out.println("Enter\n0 to Finalize\n1 to Add Dish\n2 to Remove Dish");
                 taking = Integer.parseInt(input.nextLine());
             } catch (Exception e) {
                 System.err.println(e);
