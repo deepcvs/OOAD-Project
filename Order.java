@@ -24,16 +24,14 @@ public class Order {
         } catch (Exception e) {
             System.err.println(e);
         }
-
-        // return list_of_dishes;
     }
 
     public List<Dish> RemoveItem(Scanner input) {
         String name, price;
         try {
-            System.out.println("Enter Dish name : ");
+            System.out.println("Enter Dish name: ");
             name = input.nextLine(); // Read user input
-            System.out.println("Enter the price : ");
+            System.out.println("Enter the price: ");
             price = input.nextLine();
             Dish dish = new Dish(name, price);
             list_of_dishes.remove(dish);
