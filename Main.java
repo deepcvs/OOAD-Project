@@ -45,17 +45,8 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        int taking = 1;
-        while (taking == 1) {
-            customer.TakeOrder(input);
-            System.out.println("Enter 1 to continue to give order else enter 0 to finalize order");
-            try {
-                taking = Integer.parseInt(input.nextLine());
-            } catch(Exception e) {
-                System.err.println(e);
-            }
-        }
+        
+        customer.TakeOrder(input);
 
         int delivery_id = 0; // need to initialize effectively
 

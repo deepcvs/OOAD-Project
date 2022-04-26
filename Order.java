@@ -11,21 +11,24 @@ public class Order {
     }
 
     public void AddItem(Scanner input) {
+        // public List<Dish> AddItem(Scanner input, List<Dish> list_of_dishes) {
         // TODO implement here
         String name, price;
-        try(input) {
+        try {
             System.out.println("Enter Dish name: ");
             name = input.nextLine(); // Read user input
             System.out.println("Enter the price: ");
             price = input.nextLine();
             Dish dish = new Dish(name, price);
             list_of_dishes.add(dish);
-        }  catch (Exception e) {
+        } catch (Exception e) {
             System.err.println(e);
         }
+
+        // return list_of_dishes;
     }
 
-    public void RemoveItem(Scanner input) {
+    public List<Dish> RemoveItem(Scanner input) {
         String name, price;
         try {
             System.out.println("Enter Dish name : ");
@@ -37,5 +40,7 @@ public class Order {
         } catch (Exception e) {
             System.err.println(e);
         }
+
+        return list_of_dishes;
     }
 }

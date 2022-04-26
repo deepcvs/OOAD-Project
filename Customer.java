@@ -2,9 +2,10 @@ import java.util.*;
 
 // public class Customer extends Admin {
 public class Customer {
-    private int id;
+    private int id = 1;
     public String username, password;
-    public Order order = new Order(null, id);
+    private List<Dish> list_of_dishes = new ArrayList<Dish>();
+    public Order order = new Order(list_of_dishes, id);
 
     public Customer(String username, String password) {
         this.username = username;
@@ -24,14 +25,22 @@ public class Customer {
         } catch (Exception e) {
             System.err.println(e);
         }
-            
+
         // Add customer to the database
     }
 
     public void TakeOrder(Scanner input) {
         // System.out.println("Give your order : ");
-        order.AddItem(input);
-        return;
+        int taking = 1;
+        while (taking == 1) {
+            order.AddItem(input);
+            try {
+                System.out.println("Enter 1 to continue to give order else enter 0 to finalize order");
+                taking = Integer.parseInt(input.nextLine());
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+        }
     }
 
     public void AskBill() {
