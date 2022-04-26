@@ -48,7 +48,7 @@ public class Main {
         
         customer.TakeOrder(input);
 
-        int delivery_id = 0; // need to initialize effectively
+        int delivery_id = customer.hashCode();
 
         Chef chef = new Chef(customer.order);
         chef.MakeOrder();
