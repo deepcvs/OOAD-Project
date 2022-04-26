@@ -29,11 +29,11 @@ public class Main {
                 System.out.println("Enter your password : ");
                 password = input.nextLine();
                 // input.close();
-            } finally {
-                // do nothing
+                customer.username = username;
+                customer.password = password;
+            } catch (Exception e) {
+                System.err.println(e);
             }
-            customer.username = username;
-            customer.password = password;
             login_value = login(customer);
         }
 
