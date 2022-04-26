@@ -12,9 +12,9 @@ public class Order {
 
     public void AddItem(Scanner input) {
         // public List<Dish> AddItem(Scanner input, List<Dish> list_of_dishes) {
-        // TODO implement here
         String name, price;
         try {
+            System.out.println("\n");
             System.out.println("Enter Dish name: ");
             name = input.nextLine(); // Read user input
             System.out.println("Enter the price: ");

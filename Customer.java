@@ -17,9 +17,9 @@ public class Customer {
         System.out.println("Create a profile : ");
         String username, password;
         try {
-            System.out.println("Enter your username : ");
+            System.out.println("Enter your username");
             username = input.nextLine(); // Read user input
-            System.out.println("Enter your password : ");
+            System.out.println("Enter your password");
             password = input.nextLine();
             Customer customer = new Customer(username, password);
         } catch (Exception e) {
@@ -30,7 +30,6 @@ public class Customer {
     }
 
     public void TakeOrder(Scanner input) {
-        // System.out.println("Give your order : ");
         int taking = 1;
         while (taking == 1) {
             order.AddItem(input);
