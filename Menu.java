@@ -21,7 +21,7 @@ public class Menu {
                 int price = rs.getInt("price");
                 System.out.println("NAME = " + name);
                 System.out.println("PRICE = " + price);
-                System.out.println();
+                // System.out.println();
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -105,7 +105,7 @@ public class Customer {
                         break;
                     }
                     case 2: {
-                        order.RemoveItem(input); // doesn't work
+                        order.RemoveItem(input, list);
                         break;
                     }
                     default:
