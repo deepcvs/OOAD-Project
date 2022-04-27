@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Order {
-    private int id;
     public List<Dish> list_of_dishes;
     public int status; // 1 if order is delivered 0 if still under preparation
 

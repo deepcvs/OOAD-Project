@@ -11,7 +11,7 @@ public class Bill {
     public int getCost() {
         int sum = 0;
         for (Dish dish : list_of_dishes) {
-            System.out.println(dish.name);
+            System.out.println(dish.name + " " + dish.price);
             try {
                 sum += Integer.parseInt(dish.price);
             } catch (NumberFormatException e) {

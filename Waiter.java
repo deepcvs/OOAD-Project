@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Waiter {
     private int delivery_id;
     private int table_number;

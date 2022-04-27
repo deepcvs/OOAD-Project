@@ -1,7 +1,4 @@
-import java.util.*;
-
 public class Payment {
-    private int id;
     private int amount;
 
     public Payment(int amount) {
