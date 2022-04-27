@@ -106,6 +106,9 @@ public class Customer {
 
     public void AskBill() {
         Bill bill = new Bill(order.list_of_dishes);
+        for (Dish dish : list_of_dishes) {
+            System.out.println(dish.name + " " + dish.price);
+        }
         int amount = bill.getCost();
         Payment payment = new Payment(amount);
         payment.PaymentDone();
