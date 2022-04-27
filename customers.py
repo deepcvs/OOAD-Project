@@ -56,7 +56,7 @@ def generate_password():
     return (password)
 
 
-with open("new_insert_cusomters.txt", "a") as f:
+with open("insert_customers.txt", "a") as f:
     for i in range(25):
         string = f"INSERT into cusomter values ('cusomter{i}', '{generate_password()}')"
         f.write(string + "\n")
