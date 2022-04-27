@@ -23,11 +23,10 @@ public class Customer {
                     .getConnection("jdbc:postgresql://localhost:5432/restaurant",
                             "postgres", "postgres");
             c.setAutoCommit(false);
-            // System.out.println("Opened database successfully");
-            String statement = "select * from customer where username='" + customer.username + "' and password='"
-                    + customer.password + "';";
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery(statement);
+            ResultSet rs = stmt
+                    .executeQuery("select * from customer where username='" + customer.username + "' and password='"
+                            + customer.password + "';");
             if (rs.next()) {
                 rs.close();
                 return true;
@@ -59,8 +58,6 @@ public class Customer {
             username = input.nextLine(); // Read user input
             System.out.println("Enter your password : ");
             password = input.nextLine();
-            // Customer customer = new Customer(username, password);
-            // Add customer to the database
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/restaurant",

@@ -31,12 +31,13 @@ public class Main {
             }
             login_value = customer.login(customer, c, stmt, input);
         }
+        System.out.println("Login Successful...");
 
         int table_number = 0; // need to initialize effectively
 
         Menu menu = new Menu();
         try {
-            menu.display();
+            menu.display(c, stmt);
         } catch (Exception e) {
             e.printStackTrace();
         }
