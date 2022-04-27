@@ -17,15 +17,6 @@ public class Customer {
     }
 
     public boolean login(Customer customer, Connection c, Statement stmt, Scanner input) {
-        // if (username in database) {
-        // proceed;
-        // return true;
-        // }
-        // else {
-        // Customer customer = new Customer(username, password);
-        // customer.Create();
-        // return false;
-        // }
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
@@ -42,8 +33,14 @@ public class Customer {
                 return true;
             } else {
                 rs.close();
-                Create(c, stmt, input);
-                return false;
+                System.out.println("Enter 0 to try again and 1 to create new profile : ");
+                int temp = Integer.parseInt(input.nextLine());
+                if (temp == 0) {
+                    return false;
+                } else {
+                    Create(c, stmt, input);
+                    return false;
+                }
             }
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -58,9 +55,9 @@ public class Customer {
         System.out.println("Create a profile : ");
         String username, password;
         try {
-            System.out.println("Enter your username");
+            System.out.println("Enter your username : ");
             username = input.nextLine(); // Read user input
-            System.out.println("Enter your password");
+            System.out.println("Enter your password : ");
             password = input.nextLine();
             // Customer customer = new Customer(username, password);
             // Add customer to the database
@@ -73,7 +70,7 @@ public class Customer {
 
             stmt = c.createStatement();
             String sql = "INSERT INTO CUSTOMER (USERNAME,PASSWORD) "
-                    + "VALUES (" + username + "," + password + ");";
+                    + "VALUES ('" + username + "','" + password + "');";
             stmt.executeUpdate(sql);
             c.commit();
         } catch (Exception e) {
@@ -111,10 +108,9 @@ public class Customer {
     }
 
     public void AskBill() {
-        // TODO implement here
         Bill bill = new Bill(order.list_of_dishes);
         Payment payment = new Payment(bill.ShowCost());
         payment.PaymentDone();
-        // log the customer out
+        System.exit(0);
     }
 }

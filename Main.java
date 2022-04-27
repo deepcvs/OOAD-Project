@@ -19,6 +19,7 @@ public class Main {
         while (!login_value) {
             String username, password;
             try {
+                System.out.println("Login : ")
                 System.out.println("Enter your username : ");
                 username = input.nextLine();
                 System.out.println("Enter your password : ");
