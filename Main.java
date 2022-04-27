@@ -55,7 +55,7 @@ public class Main {
         customer.AskBill();
 
         input.close();
-        stmt.close();
-        c.close();
+        // stmt.close();
+        // c.close();
     }
 }

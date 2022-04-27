@@ -8,12 +8,10 @@ public class Bill {
         this.list_of_dishes = list_of_dishes;
     }
 
-    private int GetCost() {
-        for (Dish dish : list_of_dishes) {
-            System.out.println(dish);
-        }
+    public int getCost() {
         int sum = 0;
         for (Dish dish : list_of_dishes) {
+            System.out.println(dish.name);
             try {
                 sum += Integer.parseInt(dish.price);
             } catch (NumberFormatException e) {
@@ -21,11 +19,8 @@ public class Bill {
             }
         }
 
-        return sum;
-    }
+        System.out.println("Total Cost " + sum);
 
-    public int ShowCost() {
-        System.out.println(GetCost());
-        return GetCost();
+        return sum;
     }
 }

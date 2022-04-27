@@ -106,8 +106,8 @@ public class Customer {
 
     public void AskBill() {
         Bill bill = new Bill(order.list_of_dishes);
-        Payment payment = new Payment(bill.ShowCost());
+        int amount = bill.getCost();
+        Payment payment = new Payment(amount);
         payment.PaymentDone();
-        System.exit(0);
     }
 }
