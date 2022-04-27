@@ -19,7 +19,7 @@ public class Main {
         while (!login_value) {
             String username, password;
             try {
-                System.out.println("Login : ")
+                System.out.println("Login : ");
                 System.out.println("Enter your username : ");
                 username = input.nextLine();
                 System.out.println("Enter your password : ");
@@ -51,9 +51,7 @@ public class Main {
         Waiter waiter = new Waiter(delivery_id, table_number);
         waiter.Deliver();
 
-        Bill bill = new Bill(customer.order.list_of_dishes);
-        int amount = bill.ShowCost();
-        System.out.println("Your bill is  : " + amount);
+        customer.AskBill();
 
         input.close();
         stmt.close();
