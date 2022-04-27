@@ -5,6 +5,7 @@ import java.sql.Statement;
 
 public class Menu {
     public void display(Connection c, Statement stmt) throws Exception {
+        int counter = 0;
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
@@ -15,6 +16,7 @@ public class Menu {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("select * from menu;");
             while (rs.next()) {
+                System.out.println(counter++);
                 String name = rs.getString("dish");
                 int price = rs.getInt("price");
                 System.out.println("NAME = " + name);
@@ -26,39 +28,16 @@ public class Menu {
         }
     }
 
-    public void addItem(Dish dish, Connection c, Statement stmt) throws Exception {
-        // FileWriter pw = new FileWriter("Menu.csv", true);
-        // pw.append("\n");
-        // pw.append(dish.name);
-        // pw.append(",");
-        // pw.append(dish.price);
-        // pw.append("\n");
-        // pw.flush();
-        // pw.close();
+    public void editMenu(Dish dish, Connection c, Statement stmt) throws Exception {
         Class.forName("org.postgresql.Driver");
         c = DriverManager
                 .getConnection("jdbc:postgresql://localhost:5432/restaurant",
                         "postgres", "postgres");
         c.setAutoCommit(false);
-        // System.out.println("Opened database successfully");
 
         stmt = c.createStatement();
         String sql = "insert into menu values (dish, price) '" + dish.name + "'," + Integer.parseInt(dish.price) + ");";
         stmt.executeUpdate(sql);
         c.commit();
     }
-
-    // public static void main(String[] args) throws Exception {
-    // String name, price;
-    // try (Scanner input = new Scanner(System.in)) {
-    // System.out.println("Enter Dish name : ");
-
-    // name = input.nextLine(); // Read user input
-    // price = input.nextLine();
-    // }
-    // Dish dish = new Dish(name, price);
-    // addItem(dish);
-    // System.out.println("Updated Menu");
-    // display();
-    // }
 }

@@ -9,17 +9,14 @@ public class Order {
         this.status = status;
     }
 
-    public void AddItem(Scanner input) {
+    public void AddItem(Scanner input, List<Dish> list) {
         // public List<Dish> AddItem(Scanner input, List<Dish> list_of_dishes) {
-        String name, price;
+        int number;
         try {
             System.out.println("\n");
-            System.out.println("Enter Dish name: ");
-            name = input.nextLine(); // Read user input
-            System.out.println("Enter the price: ");
-            price = input.nextLine();
-            Dish dish = new Dish(name, price);
-            list_of_dishes.add(dish);
+            System.out.println("Enter Dish Number: ");
+            number = Integer.parseInt(input.nextLine());
+            list_of_dishes.add((Dish) list.toArray()[number]);
         } catch (Exception e) {
             System.err.println(e);
         }

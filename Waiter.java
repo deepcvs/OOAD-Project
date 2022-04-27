@@ -8,7 +8,8 @@ public class Waiter {
     }
 
     public void Deliver() {
-        // TODO implement here
+        System.out.println();
         System.out.println("Delivery number " + delivery_id + " delivered to table number " + table_number);
+        System.out.println();
     }
 }

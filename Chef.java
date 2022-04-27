@@ -7,6 +7,7 @@ public class Chef {
 
     public void MakeOrder() {
         for (Dish dish : order.list_of_dishes) {
+            System.out.println();
             System.out.println(dish.name + " Preparing...");
             System.out.println(dish.name + " Done");
         }

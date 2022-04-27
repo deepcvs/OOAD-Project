@@ -6,8 +6,8 @@ public class Payment {
     }
 
     public void PaymentDone() {
-        System.out.println("Processing ...");
-        System.out.println("Payment of " + amount + " Done");
+        System.out.println("\nProcessing...");
+        System.out.println("Payment of " + amount + " Done\n");
         System.out.println("Visit Again!");
     }
 }

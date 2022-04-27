@@ -10,6 +10,7 @@ public class Customer {
     public String username, password;
     private List<Dish> list_of_dishes = new ArrayList<Dish>();
     public Order order = new Order(list_of_dishes, 0);
+    public List<Dish> list = new ArrayList<Dish>();
 
     public Customer(String username, String password) {
         this.username = username;
@@ -75,13 +76,32 @@ public class Customer {
         }
     }
 
-    public void TakeOrder(Scanner input) {
+    public void TakeOrder(Scanner input, Connection c, Statement stmt) {
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/restaurant",
+                            "postgres", "postgres");
+            c.setAutoCommit(false);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from menu;");
+            while (rs.next()) {
+                String name = rs.getString("dish");
+                int price = rs.getInt("price");
+                Dish d = new Dish(name, Integer.toString(price));
+                list.add(d);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         int taking = 1;
         while (taking != 0) {
             try {
                 switch (taking) {
                     case 1: {
-                        order.AddItem(input);
+                        order.AddItem(input, list);
                         break;
                     }
                     case 2: {
@@ -106,6 +126,7 @@ public class Customer {
 
     public void AskBill() {
         Bill bill = new Bill(order.list_of_dishes);
+        System.out.println("Your Bill:");
         for (Dish dish : list_of_dishes) {
             System.out.println(dish.name + " " + dish.price);
         }

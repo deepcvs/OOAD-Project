@@ -40,7 +40,11 @@ public class Main {
             e.printStackTrace();
         }
 
-        customer.TakeOrder(input);
+        customer.TakeOrder(input, c, stmt);
+        if (customer.order.list_of_dishes.isEmpty()) {
+            System.out.println("Thank you for Visiting, Order next time!");
+            System.exit(0);
+        }
 
         int delivery_id = customer.hashCode();
 
@@ -53,7 +57,5 @@ public class Main {
         customer.AskBill();
 
         input.close();
-        // stmt.close();
-        // c.close();
     }
 }
