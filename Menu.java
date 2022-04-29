@@ -36,7 +36,7 @@ public class Menu {
         c.setAutoCommit(false);
 
         stmt = c.createStatement();
-        String sql = "insert into menu values (dish, price) '" + dish.name + "'," + Integer.parseInt(dish.price) + ");";
+        String sql = "insert into menu values (dish, price) '" + dish.name + "', " + Integer.parseInt(dish.price) + ");";
         stmt.executeUpdate(sql);
         c.commit();
     }
