@@ -3,7 +3,8 @@
 This is a Restaurant Management System, implemented using Java.
 The features of the application include:
   * User Login
-  * Provide food recommendations
+  * Handling Simultaneous Users
+  * Table Management
   * Billing of the ordered food items
 
 ## Dependencies
