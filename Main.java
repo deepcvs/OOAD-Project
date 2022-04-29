@@ -30,8 +30,7 @@ public class Main {
             login_value = customer.login(customer, c, stmt, input);
         }
         System.out.println("Login Successful...");
-        int table_number = customer.assignTable(customer, c, stmt, input); // need to initialize effectively
-
+        int table_number = customer.assignTable(customer, c, stmt, input);
         Menu menu = new Menu();
         try {
             menu.display(c, stmt);
