@@ -1,6 +1,6 @@
-# OOAD-Project
+# Restaurant Management System
 
-Restaurant Management System, implemented in Java.
+This is a Restaurant Management System, implemented using Java.
 The features of the application include:
   * User Login
   * Provide food recommendations
