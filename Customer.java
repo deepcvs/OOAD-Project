@@ -1,4 +1,7 @@
 import java.util.*;
+
+import javax.swing.table.TableColumn;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -133,5 +136,48 @@ public class Customer {
         int amount = bill.getCost();
         Payment payment = new Payment(amount);
         payment.PaymentDone();
+    }
+
+    private int getTableNumber(ArrayList<Integer> array) {
+        int total_seats = 10;
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+
+        for (int i = 0; i < total_seats; i++) {
+            if (!array.contains(i)) {
+                temp.add(i);
+            }
+        }
+
+        return (int) temp.toArray()[0];
+    }
+
+    public int assignTable(Customer customer, Connection c, Statement stmt, Scanner input) {
+        int table_number = -1;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/restaurant",
+                            "postgres", "postgres");
+            c.setAutoCommit(false);
+            // System.out.println("Opened database successfully");
+
+            ArrayList<Integer> array = new ArrayList<Integer>();
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM TABLES;");
+            while (rs.next()) {
+                array.add(rs.getInt("table_number"));
+            }
+
+            table_number = getTableNumber(array);
+
+            String sql = "INSERT INTO TABLES (TABLE_NUMBER, USERNAME) "
+                    + "VALUES ('" + table_number + "','" + customer.username + "');";
+            stmt.executeUpdate(sql);
+            c.commit();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        return table_number;
     }
 }

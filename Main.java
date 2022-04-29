@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,7 +10,6 @@ public class Main {
     public static Statement stmt = null;
 
     public static void main(String[] args) throws SQLException {
-        // Scanner input
         System.out.println("Welcome to the Restaurant!");
         Customer customer = new Customer("", "");
         boolean login_value = false;
@@ -30,8 +30,7 @@ public class Main {
             login_value = customer.login(customer, c, stmt, input);
         }
         System.out.println("Login Successful...");
-
-        int table_number = 0; // need to initialize effectively
+        int table_number = customer.assignTable(customer, c, stmt, input); // need to initialize effectively
 
         Menu menu = new Menu();
         try {
@@ -43,6 +42,23 @@ public class Main {
         customer.TakeOrder(input, c, stmt);
         if (customer.order.list_of_dishes.isEmpty()) {
             System.out.println("Thank you for Visiting, Order next time!");
+            try {
+                Class.forName("org.postgresql.Driver");
+                c = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/restaurant",
+                                "postgres", "postgres");
+                c.setAutoCommit(false);
+
+                stmt = c.createStatement();
+                String sql = "DELETE FROM tables WHERE username='" + customer.username + "';";
+                stmt.executeUpdate(sql);
+                c.commit();
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+            c.close();
+            stmt.close();
+            input.close();
             System.exit(0);
         }
 
@@ -56,6 +72,23 @@ public class Main {
 
         customer.AskBill();
 
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/restaurant",
+                            "postgres", "postgres");
+            c.setAutoCommit(false);
+
+            stmt = c.createStatement();
+            String sql = "DELETE FROM tables WHERE username='" + customer.username + "';";
+            stmt.executeUpdate(sql);
+            c.commit();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        c.close();
+        stmt.close();
         input.close();
     }
 }
