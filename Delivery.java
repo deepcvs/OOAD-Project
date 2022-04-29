@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Delivery {
     protected int id;
     public int table_number;

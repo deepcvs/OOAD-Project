@@ -1,7 +1,4 @@
 import java.util.*;
-
-import javax.swing.table.TableColumn;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -159,7 +156,6 @@ public class Customer {
                     .getConnection("jdbc:postgresql://localhost:5432/restaurant",
                             "postgres", "postgres");
             c.setAutoCommit(false);
-            // System.out.println("Opened database successfully");
 
             ArrayList<Integer> array = new ArrayList<Integer>();
             stmt = c.createStatement();
