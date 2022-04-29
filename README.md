@@ -6,7 +6,7 @@ The features of the application include:
   * Provide food recommendations
   * Billing of the ordered food items
 
-# Dependencies
+## Dependencies
 
 * JDK Version 15 or above
 * PostgresQL installed and integrated with the java program (ref: https://www.tutorialspoint.com/postgresql/postgresql_java.htm)
