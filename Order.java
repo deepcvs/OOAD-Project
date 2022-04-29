@@ -10,7 +10,6 @@ public class Order {
     }
 
     public void AddItem(Scanner input, List<Dish> list) {
-        // public List<Dish> AddItem(Scanner input, List<Dish> list_of_dishes) {
         int number;
         try {
             System.out.println("\n");
