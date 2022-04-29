@@ -175,7 +175,8 @@ public class Customer {
             stmt.executeUpdate(sql);
             c.commit();
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println("User already logged in!");
+            System.exit(0);
         }
 
         return table_number;
