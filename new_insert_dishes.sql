@@ -1,38 +1,38 @@
 INSERT into menu
-values('Idli',30);
+values('Idli', 25);
 
 INSERT into menu
-values('Dosa',40);
+values('Dosa', 30);
 
 INSERT into menu
-values('Puri Saagu',50);
+values('Puri', 35);
 
 INSERT into menu
-values('Vada',20);
+values('Vada', 20);
 
 INSERT into menu
-values('Roti',5);
+values('Roti', 35);
 
 INSERT into menu
-values('Naan',10);
+values('Naan', 40);
 
 INSERT into menu
-values('Noodles',100);
+values('Noodles', 50);
 
 INSERT into menu
-values('Thaali',150);
+values('Thaali', 90);
 
 INSERT into menu
-values('Ice Cream',40);
+values('Ice Cream', 45);
 
 INSERT into menu
-values('Milk Shake',40);
+values('Milk Shake', 40);
 
 INSERT into menu
-values('Paneer Pav Bhaji',85);
+values('Pav Bhaji', 50);
 
 INSERT into menu
-values('Pav Bhaji',50);
+values('Paneer Pav Bhaji', 65);
 
 INSERT into menu
-values('Gulab Jamun',25);
+values('Gulab Jamun', 45);
